@@ -1,0 +1,15 @@
+.group {
+  margin: 24rpx;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.logout {
+  padding: 24rpx;
+}
+
+.logout__btn {
+  background: #FFFFFF;
+  color: var(--malignant);
+  border-radius: 16rpx;
+}

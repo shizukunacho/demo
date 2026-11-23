@@ -1,0 +1,59 @@
+<view class="page safe-bottom">
+  <view class="head">
+    <image class="head__logo" src="/image/ui/logo.png" />
+    <text class="head__name">乳腺超声智能辅助诊断</text>
+    <text class="head__ver">版本 {{version}}</text>
+  </view>
+
+  <view class="card">
+    <view class="card-title"><text class="card-title__text">项目简介</text></view>
+    <text class="text">本系统基于深度学习技术，对乳腺超声图像进行正常、良性、恶性三分类，并自动分割疑似病灶区域，为乳腺疾病的早期筛查提供辅助参考。用户通过微信小程序上传超声图像，即可在数秒内获得检测结果与病灶分割图。</text>
+  </view>
+
+  <view class="card">
+    <view class="card-title"><text class="card-title__text">技术方案</text></view>
+    <view class="row">
+      <text class="row__k">模型结构</text>
+      <text class="row__v">EfficientNet-B0 多任务网络</text>
+    </view>
+    <view class="row">
+      <text class="row__k">任务</text>
+      <text class="row__v">三分类 + 病灶分割</text>
+    </view>
+    <view class="row">
+      <text class="row__k">训练数据</text>
+      <text class="row__v">BUS-BRA、BUSI 公开数据集</text>
+    </view>
+    <view class="row">
+      <text class="row__k">输入尺寸</text>
+      <text class="row__v">256 × 256</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">
+      <text class="card-title__text">服务状态</text>
+      <text class="card-title__more" bindtap="checkModel">重新检测</text>
+    </view>
+    <view class="row">
+      <text class="row__k">检测服务</text>
+      <text class="row__v" wx:if="{{checking}}">检测中...</text>
+      <text class="row__v status status--ok" wx:elif="{{health && health.ready}}">正常运行</text>
+      <text class="row__v status status--bad" wx:elif="{{health}}">模型未就绪</text>
+      <text class="row__v status status--bad" wx:else>无法连接服务器</text>
+    </view>
+    <view class="row" wx:if="{{health && health.modelVersion}}">
+      <text class="row__k">模型版本</text>
+      <text class="row__v">{{health.modelVersion}}</text>
+    </view>
+    <view class="row" wx:if="{{health && health.device}}">
+      <text class="row__k">运行设备</text>
+      <text class="row__v">{{health.device === 'cuda' ? 'GPU' : 'CPU'}}</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-title"><text class="card-title__text">免责声明</text></view>
+    <text class="text">本系统检测结果由人工智能模型生成，仅供科研和辅助参考，不能替代医生诊断或病理检查。如有异常或不适，请及时前往正规医院就诊。</text>
+  </view>
+</view>

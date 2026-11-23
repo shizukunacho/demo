@@ -1,0 +1,25 @@
+<view class="page safe-bottom">
+  <view class="group">
+    <view class="cell" hover-class="cell-hover" bindtap="clearCache">
+      <text class="cell__label">清除缓存</text>
+      <text class="cell__value">{{cacheSize}}</text>
+      <view class="arrow"></view>
+    </view>
+    <view class="cell" hover-class="cell-hover" bindtap="showAgreement">
+      <text class="cell__label">用户协议与隐私政策</text>
+      <view class="arrow"></view>
+    </view>
+    <view class="cell" hover-class="cell-hover" bindtap="goToAbout">
+      <text class="cell__label">关于我们</text>
+      <view class="arrow"></view>
+    </view>
+    <view class="cell">
+      <text class="cell__label">当前版本</text>
+      <text class="cell__value">{{version}}</text>
+    </view>
+  </view>
+
+  <view class="logout">
+    <button class="btn logout__btn" hover-class="btn-hover" bindtap="logout">退出登录</button>
+  </view>
+</view>

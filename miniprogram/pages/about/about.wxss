@@ -1,0 +1,54 @@
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 56rpx 0 48rpx;
+}
+
+.head__logo {
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 30rpx;
+}
+
+.head__name {
+  margin-top: 24rpx;
+  font-size: 34rpx;
+  font-weight: 600;
+}
+
+.head__ver {
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  color: var(--text-3);
+}
+
+.text {
+  display: block;
+  font-size: 28rpx;
+  line-height: 1.8;
+  color: var(--text-2);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 16rpx 0;
+  font-size: 28rpx;
+}
+
+.row__k {
+  color: var(--text-3);
+}
+
+.row__v {
+  color: var(--text);
+}
+
+.status--ok {
+  color: var(--normal);
+}
+
+.status--bad {
+  color: var(--malignant);
+}

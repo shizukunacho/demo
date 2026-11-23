@@ -80,7 +80,9 @@ const api = {
   getHistoryList: (params) => request({ url: '/history', method: 'GET', data: params }),
   deleteHistory: (id) => request({ url: `/history/${id}`, method: 'DELETE' }),
   getKnowledgeList: (params) => request({ url: '/knowledge', method: 'GET', data: params }),
-  getKnowledgeDetail: (id) => request({ url: `/knowledge/${id}`, method: 'GET' })
+  getKnowledgeDetail: (id) => request({ url: `/knowledge/${id}`, method: 'GET' }),
+  getModelHealth: () => request({ url: '/model/health', method: 'GET', loading: false }),
+  submitFeedback: (data) => request({ url: '/feedback', method: 'POST', data, loadingText: '提交中...' })
 }
 
 const uploadDiagnosisImage = (filePath) => {

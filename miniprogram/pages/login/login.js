@@ -53,7 +53,14 @@ Page({
   },
 
   goToForget: function() {
-    wx.showToast({ title: '忘记密码功能开发中', icon: 'none' })
+    wx.showModal({
+      title: '忘记密码',
+      content: '请联系客服核实身份后重置密码，或使用微信一键登录。',
+      confirmText: '联系客服',
+      success: function(res) {
+        if (res.confirm) wx.navigateTo({ url: '/pages/help/help' })
+      }
+    })
   },
 
   goToRegister: function() {

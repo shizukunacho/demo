@@ -32,12 +32,6 @@ Page({
     faqs: FAQS
   },
 
-  onLoad: function() {
-    if (!wx.getStorageSync('userToken')) {
-      wx.reLaunch({ url: '/pages/login-select/login-select' })
-    }
-  },
-
   goBack: function() {
     wx.navigateBack()
   },

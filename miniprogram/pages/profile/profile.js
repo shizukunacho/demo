@@ -45,16 +45,12 @@ Page({
     wx.navigateTo({ url: '/pages/guide/guide' })
   },
 
-  goToReport: function() {
-    wx.showToast({ title: '检测报告功能开发中', icon: 'none' })
-  },
-
   goToFavorite: function() {
-    wx.showToast({ title: '收藏夹功能开发中', icon: 'none' })
+    wx.navigateTo({ url: '/pages/favorites/favorites' })
   },
 
   goToSettings: function() {
-    wx.showToast({ title: '系统设置功能开发中', icon: 'none' })
+    wx.navigateTo({ url: '/pages/settings/settings' })
   },
 
   goToHelp: function() {
@@ -62,11 +58,11 @@ Page({
   },
 
   goToFeedback: function() {
-    wx.showToast({ title: '意见反馈功能开发中', icon: 'none' })
+    wx.navigateTo({ url: '/pages/feedback/feedback' })
   },
 
   goToAbout: function() {
-    wx.showToast({ title: '关于我们功能开发中', icon: 'none' })
+    wx.navigateTo({ url: '/pages/about/about' })
   },
 
   logout: function() {

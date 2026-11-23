@@ -510,3 +510,19 @@ Authorization: Bearer <token>
 ```
 
 其中 `<token>` 为登录接口返回的 token 值。
+---
+
+## 意见反馈
+
+**接口地址**: `POST /api/feedback`（需登录）
+
+**请求体**:
+```json
+{
+  "category": "功能建议",
+  "content": "问题描述，5-500 字",
+  "contact": "选填，联系方式"
+}
+```
+
+**响应**: `{"code": 0, "message": "提交成功", "data": {"id": "..."}}`

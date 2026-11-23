@@ -1,0 +1,64 @@
+.block-title {
+  padding: 32rpx 32rpx 16rpx;
+  font-size: 26rpx;
+  color: var(--text-3);
+}
+
+.card {
+  margin-bottom: 0;
+}
+
+.types {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 24rpx 16rpx 8rpx 24rpx;
+}
+
+.types__item {
+  margin: 0 16rpx 16rpx 0;
+  padding: 12rpx 28rpx;
+  border-radius: 32rpx;
+  background: #F5F6FA;
+  font-size: 26rpx;
+  color: var(--text-2);
+  border: 1px solid transparent;
+}
+
+.types__item--on {
+  background: var(--primary-light);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.area {
+  width: 100%;
+  height: 280rpx;
+  font-size: 28rpx;
+  line-height: 1.6;
+}
+
+.count {
+  display: block;
+  text-align: right;
+  font-size: 22rpx;
+  color: var(--text-3);
+}
+
+.contact {
+  padding: 0 28rpx;
+}
+
+.contact__input {
+  height: 96rpx;
+  font-size: 28rpx;
+}
+
+.ph {
+  color: #BBBBBB;
+}
+
+.submit {
+  padding-top: 64rpx;
+  padding-left: 32rpx;
+  padding-right: 32rpx;
+}

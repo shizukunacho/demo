@@ -119,10 +119,6 @@ Page({
     wx.redirectTo({ url: '/pages/upload/upload' })
   },
 
-  goToExpert: function() {
-    wx.showToast({ title: '专家解读功能开发中', icon: 'none' })
-  },
-
   goToHome: function() {
     if (this.data.fromHistory) {
       wx.navigateBack()

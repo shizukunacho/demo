@@ -6,7 +6,7 @@ from fastapi.staticfiles import StaticFiles
 from .config import API_PREFIX, UPLOAD_DIR
 from .database import Base, SessionLocal, engine
 from .response import BusinessError, business_error_handler, validation_error_handler
-from .routers import auth, history, knowledge, upload, users
+from .routers import auth, feedback, history, knowledge, upload, users
 from .seed import seed_knowledge
 
 
@@ -35,6 +35,7 @@ def create_app() -> FastAPI:
     app.include_router(upload.router, prefix=API_PREFIX)
     app.include_router(history.router, prefix=API_PREFIX)
     app.include_router(knowledge.router, prefix=API_PREFIX)
+    app.include_router(feedback.router, prefix=API_PREFIX)
     return app
 
 

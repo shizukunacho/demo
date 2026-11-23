@@ -20,3 +20,9 @@ class WechatLoginRequest(BaseModel):
 class UpdateUserRequest(BaseModel):
     name: str | None = Field(default=None, max_length=80)
     avatar: str | None = Field(default=None, max_length=255)
+
+
+class FeedbackRequest(BaseModel):
+    category: str = Field(min_length=1, max_length=20)
+    content: str = Field(min_length=5, max_length=500)
+    contact: str | None = Field(default=None, max_length=100)

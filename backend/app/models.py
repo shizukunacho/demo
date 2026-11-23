@@ -74,3 +74,14 @@ class KnowledgeArticle(Base):
     published_at: Mapped[datetime] = mapped_column(DateTime)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=now)
     updated_at: Mapped[datetime] = mapped_column(DateTime, default=now, onupdate=now)
+
+
+class Feedback(Base):
+    __tablename__ = "feedbacks"
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True)
+    user_id: Mapped[str] = mapped_column(String(36), ForeignKey("users.id"), index=True)
+    category: Mapped[str] = mapped_column(String(20))
+    content: Mapped[str] = mapped_column(Text)
+    contact: Mapped[str] = mapped_column(String(100), default="")
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=now)
