@@ -1,0 +1,27 @@
+<view class="page">
+  <scroll-view class="tabs" scroll-x enable-flex>
+    <view class="tabs__inner">
+      <view class="tabs__item {{activeTag === '' ? 'tabs__item--on' : ''}}" bindtap="onTag" data-tag="">推荐</view>
+      <view class="tabs__item {{activeTag === item ? 'tabs__item--on' : ''}}" wx:for="{{tags}}" wx:key="*this" bindtap="onTag" data-tag="{{item}}">{{item}}</view>
+    </view>
+  </scroll-view>
+
+  <view class="list">
+    <view class="item" wx:for="{{shown}}" wx:key="id" hover-class="cell-hover" bindtap="goToDetail" data-id="{{item.id}}">
+      <view class="item__main">
+        <text class="item__title">{{item.title}}</text>
+        <text class="item__summary">{{item.summary}}</text>
+        <view class="item__meta">
+          <text class="tag tag--blue">{{item.tag}}</text>
+          <text class="item__date">{{item.createdAt}}</text>
+        </view>
+      </view>
+      <view class="item__thumb item__thumb--{{index % 3}}">
+        <text class="item__thumb-text">{{item.tag}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty" wx:if="{{loaded && shown.length === 0}}">暂无文章</view>
+  <text class="more" wx:if="{{shown.length}}">没有更多了</text>
+</view>

@@ -1,0 +1,91 @@
+page {
+  background: #FFFFFF;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 64rpx 0 56rpx;
+}
+
+.head__logo {
+  width: 112rpx;
+  height: 112rpx;
+  border-radius: 28rpx;
+}
+
+.head__title {
+  margin-top: 24rpx;
+  font-size: 36rpx;
+  font-weight: 600;
+}
+
+.form {
+  margin: 0 32rpx;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.form .cell {
+  padding: 0 8rpx;
+}
+
+.form .cell::after {
+  left: 8rpx;
+}
+
+.form__label {
+  width: 150rpx;
+  font-size: 30rpx;
+  color: var(--text);
+  flex-shrink: 0;
+}
+
+.form__input {
+  flex: 1;
+  height: 104rpx;
+  font-size: 30rpx;
+}
+
+.form__ph {
+  color: #BBBBBB;
+}
+
+.form__eye {
+  width: 40rpx;
+  height: 40rpx;
+  opacity: 0.45;
+  margin-left: 16rpx;
+}
+
+.form__tip {
+  display: block;
+  padding: 16rpx 40rpx 0;
+  font-size: 24rpx;
+  color: var(--malignant);
+}
+
+.submit {
+  padding: 64rpx 32rpx 0;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 40rpx;
+  font-size: 26rpx;
+  color: var(--text-2);
+}
+
+.links__line {
+  width: 1px;
+  height: 24rpx;
+  margin: 0 32rpx;
+  background: #DDDDDD;
+}
+
+.links__go {
+  color: var(--primary);
+}

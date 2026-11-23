@@ -1,0 +1,2 @@
+*.pth filter=lfs diff=lfs merge=lfs -text
+lightweight_unet.pth -filter -diff -merge binary

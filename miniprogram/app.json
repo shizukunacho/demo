@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/login-select/login-select",
+    "pages/login/login",
+    "pages/register/register",
+    "pages/index/index",
+    "pages/upload/upload",
+    "pages/guide/guide",
+    "pages/knowledge/knowledge",
+    "pages/knowledge-detail/knowledge-detail",
+    "pages/result/result",
+    "pages/history/history",
+    "pages/profile/profile",
+    "pages/help/help"
+  ],
+  "window": {
+    "navigationBarTitleText": "乳腺超声智能辅助诊断",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F5F6FA",
+    "backgroundTextStyle": "dark"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#2F7BF5",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "image/ui/tab-home.png",
+        "selectedIconPath": "image/ui/tab-home-on.png"
+      },
+      {
+        "pagePath": "pages/knowledge/knowledge",
+        "text": "科普",
+        "iconPath": "image/ui/tab-book.png",
+        "selectedIconPath": "image/ui/tab-book-on.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "image/ui/tab-user.png",
+        "selectedIconPath": "image/ui/tab-user-on.png"
+      }
+    ]
+  }
+}

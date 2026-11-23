@@ -1,0 +1,120 @@
+<view class="page">
+  <view class="top-bg"></view>
+
+  <!-- 轮播 -->
+  <swiper class="banner" indicator-dots indicator-color="rgba(255,255,255,0.5)" indicator-active-color="#FFFFFF" autoplay interval="5000" circular>
+    <swiper-item>
+      <view class="banner__item banner__item--blue" bindtap="selectImage">
+        <view class="banner__text">
+          <text class="banner__title">乳腺超声智能检测</text>
+          <text class="banner__desc">上传超声图像，快速获得分类与分割结果</text>
+          <view class="banner__btn">立即检测</view>
+        </view>
+        <view class="banner__circle"><image class="banner__circle-icon" src="/image/ui/grid-scan.png" /></view>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view class="banner__item banner__item--pink" bindtap="goToKnowledge">
+        <view class="banner__text">
+          <text class="banner__title">关爱乳腺健康</text>
+          <text class="banner__desc">定期筛查，早发现、早诊断、早治疗</text>
+          <view class="banner__btn banner__btn--pink">了解更多</view>
+        </view>
+        <image class="banner__logo" src="/image/ui/logo.png" />
+      </view>
+    </swiper-item>
+  </swiper>
+
+  <!-- 金刚区 -->
+  <view class="card grid">
+    <view class="grid__item" bindtap="selectImage">
+      <image class="grid__icon" src="/image/ui/grid-scan.png" />
+      <text class="grid__name">超声检测</text>
+    </view>
+    <view class="grid__item" bindtap="goToGuide">
+      <image class="grid__icon" src="/image/ui/grid-guide.png" />
+      <text class="grid__name">检测须知</text>
+    </view>
+    <view class="grid__item" bindtap="goToKnowledge">
+      <image class="grid__icon" src="/image/ui/grid-book.png" />
+      <text class="grid__name">健康科普</text>
+    </view>
+    <view class="grid__item" bindtap="goToHistory">
+      <image class="grid__icon" src="/image/ui/grid-record.png" />
+      <text class="grid__name">检测记录</text>
+    </view>
+    <view class="grid__item" bindtap="goToHelp">
+      <image class="grid__icon" src="/image/ui/grid-help.png" />
+      <text class="grid__name">常见问题</text>
+    </view>
+  </view>
+
+  <!-- 公告 -->
+  <view class="notice">
+    <image class="notice__icon" src="/image/ui/ic-notice.png" />
+    <text class="notice__label">温馨提示</text>
+    <text class="notice__text">检测结果仅供参考，不作为临床诊断依据</text>
+  </view>
+
+  <!-- 快速检测 -->
+  <view class="quick">
+    <view class="quick__item quick__item--blue" hover-class="btn-hover" bindtap="selectImage" data-source="camera">
+      <text class="quick__title">拍照检测</text>
+      <text class="quick__desc">翻拍超声报告图像</text>
+      <view class="quick__go">去拍照</view>
+    </view>
+    <view class="quick__item quick__item--green" hover-class="btn-hover" bindtap="selectImage" data-source="album">
+      <text class="quick__title">相册上传</text>
+      <text class="quick__desc">选择已保存的超声图像</text>
+      <view class="quick__go quick__go--green">去上传</view>
+    </view>
+  </view>
+
+  <!-- 最近检测 -->
+  <view class="card">
+    <view class="card-title">
+      <text class="card-title__text">最近检测</text>
+      <text class="card-title__more" bindtap="goToHistory">查看全部 ></text>
+    </view>
+    <view class="record" wx:for="{{historyList}}" wx:key="id" hover-class="cell-hover" bindtap="openRecord" data-index="{{index}}">
+      <view class="record__main">
+        <view class="record__row">
+          <text class="record__title">{{item.stateLabel}}</text>
+          <text class="tag tag--{{item.state}}">{{item.stateChip}}</text>
+        </view>
+        <text class="record__time">{{item.createdAt}}</text>
+      </view>
+      <text class="record__conf" wx:if="{{item.state !== 'pending'}}">置信度 {{item.confidence}}%</text>
+      <view class="arrow"></view>
+    </view>
+    <view class="empty" wx:if="{{historyList.length === 0}}">
+      <text>暂无检测记录</text>
+      <view class="empty__btn" bindtap="selectImage">去检测</view>
+    </view>
+  </view>
+
+  <!-- 健康科普 -->
+  <view class="card">
+    <view class="card-title">
+      <text class="card-title__text">健康科普</text>
+      <text class="card-title__more" bindtap="goToKnowledge">更多 ></text>
+    </view>
+    <view class="article" wx:for="{{articles}}" wx:key="id" hover-class="cell-hover" bindtap="goToArticle" data-id="{{item.id}}">
+      <view class="article__main">
+        <text class="article__title">{{item.title}}</text>
+        <view class="article__meta">
+          <text class="tag tag--blue">{{item.tag}}</text>
+          <text class="article__date">{{item.createdAt}}</text>
+        </view>
+      </view>
+      <view class="article__thumb">
+        <image class="article__thumb-img" src="/image/ui/logo.png" />
+      </view>
+    </view>
+    <view class="empty" wx:if="{{articles.length === 0}}">
+      <text>暂无科普文章</text>
+    </view>
+  </view>
+
+  <text class="tips safe-bottom">本系统检测结果仅供参考，如有不适请及时就医</text>
+</view>

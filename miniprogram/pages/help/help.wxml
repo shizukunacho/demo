@@ -1,0 +1,43 @@
+<view class="page safe-bottom">
+  <view class="search-wrap">
+    <view class="search">
+      <icon type="search" size="14" color="#999999" />
+      <input class="search__input" placeholder="搜索问题" placeholder-class="search__ph" confirm-type="search" bindinput="onSearch" value="{{keyword}}" />
+    </view>
+  </view>
+
+  <view class="block-title">常见问题</view>
+  <view class="faq">
+    <view class="faq__item" wx:for="{{faqs}}" wx:key="q" bindtap="toggleFaq" data-index="{{index}}">
+      <view class="faq__q">
+        <text class="faq__q-text">{{item.q}}</text>
+        <view class="faq__arrow {{expandedIndex === index ? 'faq__arrow--open' : ''}}"></view>
+      </view>
+      <view class="faq__a" wx:if="{{expandedIndex === index}}">
+        <text>{{item.a}}</text>
+      </view>
+    </view>
+    <view class="faq__none" wx:if="{{faqs.length === 0}}">未找到相关问题，请联系客服</view>
+  </view>
+
+  <view class="block-title">联系我们</view>
+  <view class="group">
+    <view class="cell" hover-class="cell-hover" bindtap="callPhone">
+      <image class="cell__icon" src="/image/ui/ic-phone.png" />
+      <text class="cell__label">客服电话</text>
+      <text class="cell__value">400-123-4567</text>
+      <view class="arrow"></view>
+    </view>
+    <view class="cell" hover-class="cell-hover" bindtap="copyEmail">
+      <image class="cell__icon" src="/image/ui/ic-mail.png" />
+      <text class="cell__label">电子邮箱</text>
+      <text class="cell__value">support@example.com</text>
+      <view class="arrow"></view>
+    </view>
+    <view class="cell">
+      <image class="cell__icon" src="/image/ui/ic-clock.png" />
+      <text class="cell__label">服务时间</text>
+      <text class="cell__value">每天 9:00-21:00</text>
+    </view>
+  </view>
+</view>

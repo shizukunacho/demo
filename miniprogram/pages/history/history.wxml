@@ -1,0 +1,30 @@
+<view class="page">
+  <view class="summary" wx:if="{{list.length}}">
+    <text>共 {{total}} 条记录</text>
+    <text class="summary__tip">长按可删除</text>
+  </view>
+
+  <view class="item" wx:for="{{list}}" wx:key="id" hover-class="cell-hover" bindtap="openRecord" bindlongpress="onLongPress" data-index="{{index}}">
+    <view class="item__head">
+      <text class="item__time">{{item.createdAt}}</text>
+      <text class="tag tag--{{item.state}}">{{item.stateChip}}</text>
+    </view>
+    <view class="item__body">
+      <view class="item__main">
+        <text class="item__title">{{item.stateLabel}}</text>
+        <text class="item__sub" wx:if="{{item.state !== 'pending'}}">置信度 {{item.confidence}}%</text>
+        <text class="item__sub" wx:else>模型未生成结果</text>
+      </view>
+      <text class="item__link">查看详情</text>
+      <view class="arrow"></view>
+    </view>
+  </view>
+
+  <view class="empty" wx:if="{{!loading && list.length === 0}}">
+    <image class="empty__img" src="/image/ui/logo.png" />
+    <text class="empty__text">暂无检测记录</text>
+    <view class="empty__btn" bindtap="goToUpload">去检测</view>
+  </view>
+
+  <text class="more" wx:if="{{list.length}}">{{loading ? '加载中...' : (finished ? '没有更多了' : '上拉加载更多')}}</text>
+</view>

@@ -1,0 +1,190 @@
+/*
+ * 全局样式
+ * 主色：医疗蓝 #2F7BF5；结果色：正常 #19A974 / 良性 #FF9A1F / 恶性 #F04B3C
+ */
+page {
+  --primary: #2F7BF5;
+  --primary-dark: #1F66DB;
+  --primary-light: #EAF2FF;
+  --bg: #F5F6FA;
+  --white: #FFFFFF;
+  --text: #333333;
+  --text-2: #666666;
+  --text-3: #999999;
+  --line: #EEEEEE;
+  --normal: #19A974;
+  --normal-light: #E6F7F0;
+  --benign: #FF9A1F;
+  --benign-light: #FFF4E5;
+  --malignant: #F04B3C;
+  --malignant-light: #FEECEA;
+  --pending: #999999;
+  --pending-light: #F2F2F2;
+
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, "PingFang SC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
+  font-size: 28rpx;
+  line-height: 1.5;
+}
+
+view, text, input, button, image, scroll-view, swiper {
+  box-sizing: border-box;
+}
+
+button::after {
+  border: none;
+}
+
+/* 卡片 */
+.card {
+  margin: 0 24rpx 24rpx;
+  padding: 28rpx;
+  background: var(--white);
+  border-radius: 16rpx;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24rpx;
+}
+
+.card-title__text {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.card-title__more {
+  font-size: 24rpx;
+  color: var(--text-3);
+}
+
+/* 按钮 */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100% !important;
+  height: 88rpx;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: 44rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #FFFFFF;
+}
+
+.btn-wechat {
+  background: #07C160;
+  color: #FFFFFF;
+}
+
+.btn-default {
+  background: #FFFFFF;
+  color: var(--primary);
+  border: 2rpx solid var(--primary);
+}
+
+.btn-disabled {
+  background: #B7D0FB;
+  color: #FFFFFF;
+}
+
+.btn-hover {
+  opacity: 0.8;
+}
+
+/* 列表单元格 */
+.cell {
+  display: flex;
+  align-items: center;
+  min-height: 104rpx;
+  padding: 0 28rpx;
+  background: var(--white);
+  position: relative;
+}
+
+.cell::after {
+  content: '';
+  position: absolute;
+  left: 28rpx;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--line);
+  transform: scaleY(0.5);
+}
+
+.cell:last-child::after {
+  display: none;
+}
+
+.cell-hover {
+  background: #F7F7F7;
+}
+
+.cell__icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+
+.cell__label {
+  flex: 1;
+  font-size: 30rpx;
+  color: var(--text);
+}
+
+.cell__value {
+  font-size: 28rpx;
+  color: var(--text-3);
+  margin-right: 12rpx;
+}
+
+.arrow {
+  width: 14rpx;
+  height: 14rpx;
+  border-top: 3rpx solid #C8C8C8;
+  border-right: 3rpx solid #C8C8C8;
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+/* 结果标签 */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  height: 40rpx;
+  padding: 0 14rpx;
+  border-radius: 6rpx;
+  font-size: 22rpx;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.tag--normal { background: var(--normal-light); color: var(--normal); }
+.tag--benign { background: var(--benign-light); color: var(--benign); }
+.tag--malignant { background: var(--malignant-light); color: var(--malignant); }
+.tag--pending { background: var(--pending-light); color: var(--pending); }
+.tag--blue { background: var(--primary-light); color: var(--primary); }
+
+.tips {
+  display: block;
+  padding: 24rpx 32rpx 0;
+  font-size: 22rpx;
+  line-height: 1.6;
+  color: var(--text-3);
+  text-align: center;
+}
+
+.safe-bottom {
+  padding-bottom: calc(32rpx + env(safe-area-inset-bottom));
+}

@@ -1,0 +1,75 @@
+<view class="page safe-bottom">
+  <view class="banner">
+    <text class="banner__title">检测须知</text>
+    <text class="banner__desc">为保证检测效果，请在使用前仔细阅读</text>
+  </view>
+
+  <view class="card">
+    <view class="sec-title"><view class="sec-title__bar"></view><text>适用范围</text></view>
+    <text class="text">本系统适用于乳腺超声灰阶（B 模式）图像的辅助分析。乳腺 X 线（钼靶）、MRI、病理切片等图像不在适用范围内。</text>
+  </view>
+
+  <view class="card">
+    <view class="sec-title"><view class="sec-title__bar"></view><text>检测流程</text></view>
+    <view class="steps">
+      <view class="steps__item">
+        <view class="steps__num">1</view>
+        <text class="steps__name">上传图像</text>
+      </view>
+      <view class="steps__line"></view>
+      <view class="steps__item">
+        <view class="steps__num">2</view>
+        <text class="steps__name">智能分析</text>
+      </view>
+      <view class="steps__line"></view>
+      <view class="steps__item">
+        <view class="steps__num">3</view>
+        <text class="steps__name">查看报告</text>
+      </view>
+      <view class="steps__line"></view>
+      <view class="steps__item">
+        <view class="steps__num">4</view>
+        <text class="steps__name">就医咨询</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="sec-title"><view class="sec-title__bar"></view><text>图像要求</text></view>
+    <text class="text">1. 图像清晰，病灶区域完整；</text>
+    <text class="text">2. 尽量避免测量标记、箭头、文字遮挡病灶；</text>
+    <text class="text">3. 翻拍屏幕时正对拍摄，避免反光和倾斜；</text>
+    <text class="text">4. 支持 JPG、PNG 格式。</text>
+  </view>
+
+  <view class="card">
+    <view class="sec-title"><view class="sec-title__bar"></view><text>结果说明</text></view>
+    <view class="table">
+      <view class="table__row table__row--head">
+        <text class="table__c1">结果</text>
+        <text class="table__c2">含义</text>
+      </view>
+      <view class="table__row">
+        <view class="table__c1"><text class="tag tag--normal">正常</text></view>
+        <text class="table__c2">未发现明确病灶</text>
+      </view>
+      <view class="table__row">
+        <view class="table__c1"><text class="tag tag--benign">良性</text></view>
+        <text class="table__c2">病灶特征倾向良性，如纤维腺瘤、囊肿等</text>
+      </view>
+      <view class="table__row">
+        <view class="table__c1"><text class="tag tag--malignant">恶性</text></view>
+        <text class="table__c2">病灶具有恶性特征，建议尽快就诊</text>
+      </view>
+      <view class="table__row">
+        <view class="table__c1"><text class="tag tag--blue">置信度</text></view>
+        <text class="table__c2">模型对该分类结果的确定程度</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card warn">
+    <view class="sec-title"><view class="sec-title__bar sec-title__bar--warn"></view><text>注意事项</text></view>
+    <text class="text">检测结果仅供参考，不作为临床诊断依据。BI-RADS 分级及后续处理以医院出具的报告为准，如有不适请及时就医。</text>
+  </view>
+</view>

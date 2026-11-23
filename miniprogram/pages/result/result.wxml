@@ -1,0 +1,93 @@
+<view class="page">
+  <!-- 结论 -->
+  <view class="head" style="background: {{theme.bg}};">
+    <view class="head__icon" style="color: {{theme.color}};">{{theme.icon}}</view>
+    <text class="head__label">检测结果</text>
+    <text class="head__result">{{hasResult ? verdict : '未能生成结果'}}</text>
+    <text class="head__time" wx:if="{{createdAt}}">检测时间：{{createdAt}}</text>
+  </view>
+
+  <block wx:if="{{hasResult}}">
+    <view class="card overview">
+      <view class="overview__item">
+        <text class="overview__value" style="color: {{theme.color}};">{{confidence}}<text class="overview__unit">%</text></text>
+        <text class="overview__label">置信度</text>
+      </view>
+      <view class="overview__line"></view>
+      <view class="overview__item">
+        <text class="overview__value" style="color: {{theme.color}};">{{resultShort}}</text>
+        <text class="overview__label">分类结果</text>
+      </view>
+    </view>
+
+    <view class="card" wx:if="{{hasProbabilities}}">
+      <view class="card-title">
+        <text class="card-title__text">各类别概率</text>
+      </view>
+      <view class="prob" wx:for="{{classes}}" wx:key="key">
+        <text class="prob__name">{{item.name}}</text>
+        <view class="prob__track">
+          <view class="prob__fill prob__fill--{{item.key}}" style="width: {{item.width}}%;"></view>
+        </view>
+        <text class="prob__value">{{item.value}}%</text>
+      </view>
+    </view>
+
+    <view class="card" wx:if="{{imagePath}}">
+      <view class="card-title">
+        <text class="card-title__text">病灶分割</text>
+        <text class="card-title__more">点击图片可放大</text>
+      </view>
+      <view class="figs">
+        <view class="fig" bindtap="previewImage" data-src="{{imagePath}}">
+          <image class="fig__img" src="{{imagePath}}" mode="aspectFill" />
+          <text class="fig__cap">原始图像</text>
+        </view>
+        <view class="fig" wx:if="{{maskUrl && !maskFailed}}" bindtap="previewImage" data-src="{{maskUrl}}">
+          <image class="fig__img" src="{{maskUrl}}" mode="aspectFill" binderror="onMaskError" />
+          <text class="fig__cap">分割结果（白色为病灶）</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="card">
+      <view class="card-title">
+        <text class="card-title__text">结果分析</text>
+      </view>
+      <text class="text">{{summaryContent}}</text>
+      <view class="advice" wx:if="{{suggestion}}">
+        <text class="advice__label">医生建议</text>
+        <text class="advice__text">{{suggestion}}</text>
+      </view>
+    </view>
+
+    <view class="card info" wx:if="{{modelVersion || device}}">
+      <view class="info__row" wx:if="{{modelVersion}}">
+        <text class="info__k">模型版本</text>
+        <text class="info__v">{{modelVersion}}</text>
+      </view>
+      <view class="info__row" wx:if="{{device}}">
+        <text class="info__k">运行设备</text>
+        <text class="info__v">{{device}}</text>
+      </view>
+    </view>
+  </block>
+
+  <view class="card" wx:else>
+    <view class="card-title">
+      <text class="card-title__text">原因说明</text>
+    </view>
+    <text class="text">{{summaryContent}}</text>
+    <text class="text text--gap" wx:if="{{suggestion}}">{{suggestion}}</text>
+  </view>
+
+  <view class="statement">
+    <text class="statement__title">免责声明</text>
+    <text class="statement__text">本结果由人工智能模型生成，仅供参考，不作为临床诊断依据。如有异常或不适，请及时前往正规医院乳腺专科就诊。</text>
+  </view>
+
+  <view class="footer">
+    <button class="btn btn-default footer__btn" hover-class="btn-hover" bindtap="goToHome">{{fromHistory ? '返回' : '返回首页'}}</button>
+    <button class="btn btn-primary footer__btn" hover-class="btn-hover" bindtap="goToUpload">再次检测</button>
+  </view>
+</view>

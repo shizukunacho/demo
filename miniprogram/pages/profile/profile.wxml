@@ -1,0 +1,79 @@
+<view class="page safe-bottom">
+  <view class="head">
+    <view class="user">
+      <view class="user__avatar">
+        <image wx:if="{{userInfo.avatar}}" class="user__img" src="{{userInfo.avatar}}" mode="aspectFill" />
+        <text wx:else class="user__initial">{{initial}}</text>
+      </view>
+      <view class="user__info">
+        <text class="user__name">{{userInfo.name || '微信用户'}}</text>
+        <text class="user__id" wx:if="{{userInfo.id}}">ID：{{userInfo.id}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card stats">
+    <view class="stats__item" bindtap="goToHistory">
+      <text class="stats__num">{{stats.totalTests || 0}}</text>
+      <text class="stats__label">检测次数</text>
+    </view>
+    <view class="stats__item" bindtap="goToHistory">
+      <text class="stats__num">{{stats.benignResults || 0}}</text>
+      <text class="stats__label">良性结果</text>
+    </view>
+    <view class="stats__item" bindtap="goToHistory">
+      <text class="stats__num">{{stats.pendingResults || 0}}</text>
+      <text class="stats__label">待诊断</text>
+    </view>
+  </view>
+
+  <view class="group">
+    <view class="cell" hover-class="cell-hover" bindtap="goToHistory">
+      <image class="cell__icon" src="/image/ui/ic-record.png" />
+      <text class="cell__label">检测记录</text>
+      <view class="arrow"></view>
+    </view>
+    <view class="cell" hover-class="cell-hover" bindtap="goToReport">
+      <image class="cell__icon" src="/image/ui/ic-report.png" />
+      <text class="cell__label">检测报告</text>
+      <view class="arrow"></view>
+    </view>
+    <view class="cell" hover-class="cell-hover" bindtap="goToFavorite">
+      <image class="cell__icon" src="/image/ui/ic-star.png" />
+      <text class="cell__label">我的收藏</text>
+      <view class="arrow"></view>
+    </view>
+  </view>
+
+  <view class="group">
+    <view class="cell" hover-class="cell-hover" bindtap="goToGuide">
+      <image class="cell__icon" src="/image/ui/ic-guide.png" />
+      <text class="cell__label">检测须知</text>
+      <view class="arrow"></view>
+    </view>
+    <view class="cell" hover-class="cell-hover" bindtap="goToHelp">
+      <image class="cell__icon" src="/image/ui/ic-help.png" />
+      <text class="cell__label">常见问题</text>
+      <view class="arrow"></view>
+    </view>
+    <view class="cell" hover-class="cell-hover" bindtap="goToFeedback">
+      <image class="cell__icon" src="/image/ui/ic-chat.png" />
+      <text class="cell__label">意见反馈</text>
+      <view class="arrow"></view>
+    </view>
+    <view class="cell" hover-class="cell-hover" bindtap="goToAbout">
+      <image class="cell__icon" src="/image/ui/ic-info.png" />
+      <text class="cell__label">关于我们</text>
+      <view class="arrow"></view>
+    </view>
+    <view class="cell" hover-class="cell-hover" bindtap="goToSettings">
+      <image class="cell__icon" src="/image/ui/ic-setting.png" />
+      <text class="cell__label">设置</text>
+      <view class="arrow"></view>
+    </view>
+  </view>
+
+  <view class="logout">
+    <button class="btn logout__btn" hover-class="btn-hover" bindtap="logout">退出登录</button>
+  </view>
+</view>

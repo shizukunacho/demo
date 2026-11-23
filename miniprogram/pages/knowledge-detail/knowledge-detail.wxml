@@ -1,0 +1,19 @@
+<view class="page safe-bottom">
+  <view class="article">
+    <text class="article__title">{{article.title}}</text>
+    <view class="article__meta">
+      <text class="tag tag--blue">{{article.tag}}</text>
+      <text class="article__date">{{article.date}}</text>
+    </view>
+    <view class="article__lead" wx:if="{{showLead}}">
+      <text>{{article.summary}}</text>
+    </view>
+    <view class="article__body">
+      <block wx:for="{{blocks}}" wx:key="index">
+        <text class="article__h" wx:if="{{item.type === 'h'}}">{{item.text}}</text>
+        <text class="article__p" wx:else>{{item.text}}</text>
+      </block>
+    </view>
+  </view>
+  <text class="tips">本文为健康科普内容，不能替代医生的诊断和治疗建议</text>
+</view>

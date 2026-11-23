@@ -1,0 +1,57 @@
+<view class="page">
+  <view class="topbar">
+    <image class="topbar__icon" src="/image/ui/ic-notice.png" />
+    <text>请上传清晰的乳腺超声图像，检测结果仅供参考</text>
+  </view>
+
+  <view class="card">
+    <view class="card-title">
+      <text class="card-title__text">上传图像</text>
+      <text class="card-title__more">支持 JPG / PNG</text>
+    </view>
+
+    <view class="uploader" wx:if="{{!imagePath}}" hover-class="uploader--hover" bindtap="chooseSource">
+      <image class="uploader__plus" src="/image/ui/ic-plus.png" />
+      <text class="uploader__text">点击上传超声图像</text>
+      <text class="uploader__sub">可从相册选择或拍照</text>
+    </view>
+
+    <view class="preview" wx:else>
+      <image class="preview__img" src="{{imagePath}}" mode="aspectFit" bindtap="previewImage" />
+      <view class="preview__del" wx:if="{{!analyzing}}" catchtap="clearImage">×</view>
+      <view class="scanning" wx:if="{{analyzing}}">
+        <view class="scanning__line"></view>
+        <text class="scanning__text">正在检测，请稍候...</text>
+      </view>
+    </view>
+    <view class="reselect" wx:if="{{imagePath && !analyzing}}">
+      <text bindtap="chooseSource">重新选择</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">
+      <text class="card-title__text">图像要求</text>
+    </view>
+    <view class="req">
+      <view class="req__item"><text class="req__ok">✓</text><text>乳腺超声灰阶图像</text></view>
+      <view class="req__item"><text class="req__ok">✓</text><text>病灶完整清晰</text></view>
+      <view class="req__item"><text class="req__ok">✓</text><text>无标记遮挡</text></view>
+      <view class="req__item"><text class="req__ok">✓</text><text>无反光模糊</text></view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">
+      <text class="card-title__text">温馨提示</text>
+    </view>
+    <text class="tip-line">1. 钼靶、MRI、病理切片等其他类型图像无法得到有效结果；</text>
+    <text class="tip-line">2. 尽量避免测量标记、箭头等遮挡病灶区域；</text>
+    <text class="tip-line">3. 翻拍屏幕时请保持正对，避免反光和模糊；</text>
+    <text class="tip-line">4. 检测结果仅供参考，请以医院诊断为准。</text>
+  </view>
+
+  <view class="footer">
+    <button class="btn {{imagePath && !analyzing ? 'btn-primary' : 'btn-disabled'}}" hover-class="btn-hover" bindtap="handleUpload">{{analyzing ? '检测中...' : '开始检测'}}</button>
+  </view>
+</view>

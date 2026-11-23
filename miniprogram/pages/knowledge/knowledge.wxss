@@ -1,0 +1,134 @@
+.tabs {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  white-space: nowrap;
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--line);
+}
+
+.tabs__inner {
+  display: flex;
+  padding: 0 12rpx;
+}
+
+.tabs__item {
+  position: relative;
+  flex-shrink: 0;
+  padding: 0 28rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 28rpx;
+  color: var(--text-2);
+}
+
+.tabs__item--on {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 30rpx;
+}
+
+.tabs__item--on::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 8rpx;
+  width: 40rpx;
+  height: 6rpx;
+  margin-left: -20rpx;
+  border-radius: 3rpx;
+  background: var(--primary);
+}
+
+.list {
+  margin: 24rpx;
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.item {
+  display: flex;
+  padding: 28rpx;
+  border-bottom: 1px solid var(--line);
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.item__main {
+  flex: 1;
+  min-width: 0;
+  margin-right: 24rpx;
+}
+
+.item__title {
+  display: -webkit-box;
+  font-size: 30rpx;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--text);
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.item__summary {
+  display: block;
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  color: var(--text-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item__meta {
+  display: flex;
+  align-items: center;
+  margin-top: 14rpx;
+}
+
+.item__date {
+  margin-left: 16rpx;
+  font-size: 22rpx;
+  color: var(--text-3);
+}
+
+.item__thumb {
+  width: 200rpx;
+  height: 150rpx;
+  border-radius: 12rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.item__thumb--0 { background: linear-gradient(135deg, #6FA8FF 0%, #2F7BF5 100%); }
+.item__thumb--1 { background: linear-gradient(135deg, #FF9EB8 0%, #F2648C 100%); }
+.item__thumb--2 { background: linear-gradient(135deg, #5FD6BE 0%, #19A974 100%); }
+
+.item__thumb-text {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: 4rpx;
+}
+
+.empty {
+  padding: 160rpx 0;
+  text-align: center;
+  font-size: 26rpx;
+  color: var(--text-3);
+}
+
+.more {
+  display: block;
+  padding-bottom: 32rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: var(--text-3);
+}
